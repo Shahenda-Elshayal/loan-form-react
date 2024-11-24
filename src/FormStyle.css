@@ -1,0 +1,183 @@
+.form-indiv {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: #626F47;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    position: relative;
+    margin: 90px auto 0;
+}
+
+.form-indiv::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0;
+    transform: rotate(-6deg);
+    z-index: -1;
+    border-radius: 30px;
+    background: rgb(112, 134, 69);
+    background: linear-gradient(356deg, rgba(112, 134, 69, 0.9388349089635855) 0%, rgba(254, 250, 224, 1) 99%);
+}
+
+@media (max-width:767px) {
+    .form-indiv {
+        width: calc(100% - 60px);
+        margin: 40px auto 0
+    }
+}
+
+input {
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.form-indiv h1 {
+    text-align: center;
+    padding: 5px 20px 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-indiv h1::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #FEFAE0;
+}
+
+@media (max-width:767px) {
+    .form-indiv h1 {
+        font-size: 22px;
+    }
+}
+
+.form-indiv label {
+    padding-bottom: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-indiv input {
+    margin-bottom: 18px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #FEFAE0;
+    border-radius: 6px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]+span {
+    width: 25px;
+    height: 25px;
+    background-color: #FEFAE0;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 4px;
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid #626F47;
+    outline: 2px solid #FEFAE0;
+}
+
+input[type="checkbox"]:checked+span::after {
+    position: absolute;
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #626F47;
+}
+
+.form-indiv select {
+    background-color: #FEFAE0;
+    padding: 8px 6px;
+    color: #626F47;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-indiv select:focus {
+    outline-color: #626F47;
+}
+
+
+.form-indiv option {
+    background-color: #ebe6c5;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    width: fit-content;
+    cursor: pointer;
+    color: black;
+    font-weight: 800;
+    margin: 20px auto 6px;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background: rgb(112, 134, 69);
+    background: linear-gradient(356deg, rgba(112, 134, 69, 0.9388349089635855) 0%, rgba(254, 250, 224, 1) 99%);
+}
+
+.titleStyle {
+    background-color: #FEFAE0;
+    color: #626F47;
+    font-weight: 800;
+    font-size: 30px;
+    text-transform: capitalize;
+    padding: 30px;
+    text-align: center;
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    /* color: green; */
+}
+
+.outterRes {
+    background-color: rgba(0, 0, 0, 0.671);
+    z-index: 300;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -90px;
+}
+
+@media (max-width:767px) {
+    .titleStyle {
+        font-size: 20px;
+        padding: 14px 0;
+        width: calc(100% - 20px);
+    }
+
+    .outterRes {
+        top: -40px;
+    }
+}
+
+.disabledButton {
+    filter: grayscale(100%);
+    opacity: 0.3;
+    cursor: no-drop !important;
+}
