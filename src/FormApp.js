@@ -2,6 +2,7 @@ import "./FormStyle.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Result from "./Result";
 import { useState } from "react";
+import InputComponents from "./InputComponents";
 
 export default function FormApp() {
 
@@ -33,25 +34,39 @@ export default function FormApp() {
 
     const finalValues = inputValue.name === "" || inputValue.phoneNum === "" || inputValue.age === "";
 
+    function handlePhoneNumInput(e) {
+        setInputValue({ ...inputValue, phoneNum: e });
+    }
+
+    function handleNameInput(e) {
+        setInputValue({ ...inputValue, name: e });
+    }
+
+    function handleAgeInput(e) {
+        setInputValue({ ...inputValue, age: e });
+    }
     return (
         <div className="form-outdiv" style={{ position: "relative" }} onClick={handleOutDiv}>
             <form className="form-indiv">
                 <h1>Requesting A Loan</h1>
 
-                <label>User name</label>
-                <input type="text" value={inputValue.name} onChange={(e) => {
-                    setInputValue({ ...inputValue, name: e.target.value });
-                }}></input>
+                <InputComponents
+                    title="User Name"
+                    value={inputValue.name}
+                    handleClickInput={handleNameInput}
+                />
 
-                <label>Phone number</label>
-                <input type="text" value={inputValue.phoneNum} onChange={(e) => {
-                    setInputValue({ ...inputValue, phoneNum: e.target.value });
-                }}></input>
+                <InputComponents
+                    title="Phone Number"
+                    value={inputValue.phoneNum}
+                    handleClickInput={handlePhoneNumInput}
+                />
 
-                <label>Age</label>
-                <input type="text" value={inputValue.age} onChange={(e) => {
-                    setInputValue({ ...inputValue, age: e.target.value });
-                }}></input>
+                <InputComponents
+                    title="Age"
+                    value={inputValue.age}
+                    handleClickInput={handleAgeInput}
+                />
 
                 <label style={{ textAlign: "center", padding: "10px 0 0", width: "fit-content", height: "30px", margin: "0 auto 30px" }}>Are you an employee?
                     <input type="checkbox" style={{ margin: "0" }} checked={inputValue.isEmployee} onChange={(e) => {
